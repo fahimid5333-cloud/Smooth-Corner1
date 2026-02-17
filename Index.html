@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100GB Free Internet Offer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:rgba(0,0,0,0.5);
+}
+
+nav h2{
+    color:#00ffcc;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:15px;
+}
+
+nav ul li{
+    cursor:pointer;
+    color:#ccc;
+}
+
+/* Hero */
+.hero{
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:45px;
+    color:#00ffcc;
+}
+
+.hero p{
+    margin-top:15px;
+    opacity:0.8;
+}
+
+/* Button */
+.btn{
+    margin-top:30px;
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    font-size:18px;
+    background:#00ff88;
+    color:black;
+    cursor:pointer;
+}
+
+/* Modal Common */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+}
+
+/* Number Box */
+.modal-content{
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    width:90%;
+    max-width:320px;
+}
+
+.modal-content h3{
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    margin-bottom:15px;
+}
+
+.verify-btn{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:25px;
+    background:#00ff88;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Success Box */
+.success-content{
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    width:90%;
+    max-width:320px;
+    text-align:left;
+}
+
+.success-content h2{
+    margin-bottom:10px;
+}
+
+.success-content button{
+    background:none;
+    border:none;
+    color:#2196f3;
+    font-weight:bold;
+    float:right;
+    cursor:pointer;
+}
+
+footer{
+    margin-top:100px;
+    padding:20px;
+    background:rgba(0,0,0,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>FreeData</h2>
+    <ul>
+        <li>Home</li>
+        <li>Offer</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>🎉 ১০০ জিবি এমবি ফ্রি 🎉</h1>
+    <p>সীমিত সময়ের বিশেষ ইন্টারনেট অফার</p>
+    <button class="btn" onclick="openModal()">এখনই ক্লেইম করুন</button>
+</section>
+
+<footer>
+    © 2026 FreeData Official | All Rights Reserved
+</footer>
+
+<!-- Number Input Modal -->
+<div class="modal" id="numberModal">
+    <div class="modal-content">
+        <h3>আপনার মোবাইল নাম্বার দিন</h3>
+        <input type="tel" id="phone" placeholder="01XXXXXXXXX">
+        <button class="verify-btn" onclick="verifyNumber()">সাবমিট করুন</button>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal" id="successModal">
+    <div class="success-content">
+        <h2>Alert</h2>
+        <p>অভিনন্দন! আপনার ১০০GB অফার সফলভাবে সাবমিট হয়েছে।</p>
+        <button onclick="closeSuccess()">OK</button>
+    </div>
+</div>
+
+<script>
+function openModal(){
+    document.getElementById("numberModal").style.display="flex";
+}
+
+function verifyNumber(){
+    let number = document.getElementById("phone").value;
+
+    if(number.length < 11){
+        alert("সঠিক মোবাইল নাম্বার দিন!");
+    }else{
+        document.getElementById("numberModal").style.display="none";
+        document.getElementById("successModal").style.display="flex";
+    }
+}
+
+function closeSuccess(){
+    document.getElementById("successModal").style.display="none";
+}
+</script>
+
+</body>
+</html>
